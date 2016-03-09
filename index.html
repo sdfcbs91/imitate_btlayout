@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>自由布局</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/layoutsbil.js"></script>
+    <script src="js/mouse.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <link href="css/layoutsbil.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div>
+                <div class="sidebar-nav">
+                    <ul class="nav nav-list accordion-group" >
+                        <li class="nav-header">
+                            <div class="pull-right popover-info"><i class="icon-question-sign "></i>
+                                <div class="popover fade right">
+                                    <div class="arrow"></div>
+                                    <h3 class="popover-title">功能</h3>
+                                    <div class="popover-content">在这里设置你的栅格布局, 栅格总数默认为10, 用空格分割每列的栅格值;多行的栅格数即是n*10; 如果您需要了解更多信息，请访问<a target="_blank" href="http://twitter.github.io/bootstrap/scaffolding.html#gridSystem">Bootstrap栅格系统.</a></div>
+                                </div>
+                            </div>
+                            <i class="icon-plus icon-white"></i> 
+                            布局设置 
+                        </li>
+                        <li class="rows" id="destRows">
+                            <div class="bilrow ui-draggable">
+                                <span class="drag label">
+                                    <i class="icon-move"></i>
+                                    拖动
+                                </span>
+                                <div class="preview">
+                                    <input value="2 8" type="text" />
+                                </div>
+                                <div class="preview-wind">
+                                    <div class="preview-box span2">2</div>
+                                    <div class="preview-box span8">8</div>
+                                </div>
+                            </div>
+                            <div class="bilrow ui-draggable">
+                                <span class="drag label">
+                                    <i class="icon-move"></i>
+                                    拖动
+                                </span>
+                                <div class="preview">
+                                    <input value="5 5" type="text" />
+                                </div>
+                                <div class="preview-wind">
+                                    <div class="preview-box span5">5</div>
+                                    <div class="preview-box span5">5</div>
+                                </div>
+                            </div>
+
+                            <div class="bilrow ui-draggable ui-dragging">
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="demo sbil" id="bilacept">
+                <div class="accept">
+                    <!--
+                    <div class="accept"></div>
+                    
+                    <div class="biladding"></div>
+
+                    <div class="bilbox">
+                        <span class="drag label"><i class="icon-move"></i>拖动</span>
+                        <span class="drag label label-remove"><i class="icon-remove icon-white"></i>删除</span>
+                        <div class="span2">
+                            <div class="sbck"><div class="biladding"></div></div>
+                        </div>
+                        <div class="span8">
+                            <div class="sbck"><div class="biladding"></div></div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <script>
+        var resize = function () {
+            var $body = $('body');
+            var b_h = $body[0].scrollHeight,
+                w_h = $(window).height();
+                body_h = parseInt(w_h) - parseInt($body.css('padding-top')) - parseInt($body.css('padding-bottom'));
+            $('body').css({ 'min-height': body_h });
+            $('.demo.sbil').css({ 'height': body_h });
+        }
+        $(function () {
+            resize();
+            $(window).resize(resize);
+        });
+    </script>
+</html>
